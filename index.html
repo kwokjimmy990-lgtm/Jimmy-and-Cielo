@@ -1,0 +1,1043 @@
+Saya ubah konsepnya menjadi **Dark Mafia Luxury**: dominan hitam, biru pastel sebagai aksen, nuansa gangster elegan, tipografi premium, efek glow biru, dan kartu transparan bergaya glassmorphism.
+
+```
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>Cielo & Jimmy | The Dark Legacy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #080b12;
+    --dark: #0d121d;
+    --card: #111a29;
+    --blue: #a8d8ff;
+    --blue2: #72b8ed;
+    --white: #f2f6fc;
+    --muted: #8999ad;
+    --border: rgba(168,216,255,.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+/* BACKGROUND EFFECT */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 80% 10%, rgba(67,132,190,.13), transparent 35%),
+        radial-gradient(ellipse at 10% 70%, rgba(70,120,180,.08), transparent 35%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    opacity: .025;
+    pointer-events: none;
+    z-index: 10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* NAVBAR */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,18,.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+    height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(8,11,18,.97), rgba(8,11,18,.65)),
+        radial-gradient(circle at 80% 40%, #254665, #080b12 65%);
+}
+
+.hero::after {
+    content: "LEGACY";
+    position: absolute;
+    right: -30px;
+    bottom: -70px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(100px, 23vw, 300px);
+    font-weight: 800;
+    color: rgba(168,216,255,.035);
+    letter-spacing: 10px;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 110px 0;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid rgba(168,216,255,.35);
+    color: var(--blue);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(55px, 9vw, 105px);
+    line-height: 1.15;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--blue);
+    text-shadow: 0 0 35px rgba(114,184,237,.4);
+}
+
+.hero p {
+    max-width: 600px;
+    color: #a5b4c5;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: #08111d;
+}
+
+.btn-primary:hover {
+    background: white;
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(168,216,255,.3);
+}
+
+.btn-outline {
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+.btn-outline:hover {
+    background: var(--blue);
+    color: var(--black);
+}
+
+/* GENERAL SECTION */
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-label {
+    color: var(--blue2);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 5vw, 46px);
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.section-description {
+    color: var(--muted);
+    max-width: 650px;
+    margin-bottom: 45px;
+}
+
+/* ABOUT */
+
+.about {
+    background: #0b1019;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.5fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about-visual {
+    min-height: 370px;
+    background:
+        linear-gradient(145deg, #172b40, #090e17);
+    border: 1px solid rgba(168,216,255,.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-visual::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(168,216,255,.3);
+    border-radius: 50%;
+    box-shadow: 0 0 80px rgba(114,184,237,.1);
+}
+
+.about-visual span {
+    font-family: 'Cinzel', serif;
+    font-size: 75px;
+    color: var(--blue);
+    position: relative;
+    text-shadow: 0 0 30px #72b8ed80;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.about-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.value-tag {
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    color: var(--blue);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: linear-gradient(145deg, #121d2c, #0c111b);
+    border: 1px solid var(--border);
+    padding: 30px;
+    transition: .4s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+    box-shadow: 0 10px 35px rgba(114,184,237,.1);
+}
+
+.skill-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: rgba(168,216,255,.1);
+    border: 1px solid var(--border);
+    font-size: 24px;
+    margin-bottom: 22px;
+}
+
+.skill-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--blue);
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* EXPERIENCE */
+
+.experience {
+    background: #0b1019;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline {
+    border-left: 1px solid rgba(168,216,255,.35);
+    margin-left: 12px;
+    padding-left: 35px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 42px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -42px;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--blue);
+}
+
+.timeline-date {
+    color: var(--blue2);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.timeline-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: var(--white);
+}
+
+.timeline-item p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+/* HOBBIES */
+
+.hobby-box {
+    background:
+        linear-gradient(135deg, #14263a, #0c111b);
+    border: 1px solid rgba(168,216,255,.25);
+    padding: 45px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hobby-box::after {
+    content: "C&J";
+    position: absolute;
+    right: 10px;
+    bottom: -65px;
+    font-family: 'Cinzel', serif;
+    font-size: 190px;
+    color: rgba(168,216,255,.04);
+    pointer-events: none;
+}
+
+.hobby-box .section-title {
+    color: var(--blue);
+}
+
+.hobby-box p {
+    color: var(--muted);
+}
+
+.hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.hobby-tag {
+    padding: 10px 17px;
+    border: 1px solid rgba(168,216,255,.2);
+    background: rgba(255,255,255,.025);
+    color: #c4d5e8;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.hobby-tag:hover {
+    background: var(--blue);
+    color: #080b12;
+    transform: translateY(-3px);
+}
+
+/* ACHIEVEMENTS */
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.achievement-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    transition: .3s;
+}
+
+.achievement-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(114,184,237,.08);
+}
+
+.achievement-icon {
+    font-size: 30px;
+}
+
+.achievement-card h3 {
+    color: var(--blue);
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.achievement-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* CONTACT */
+
+.contact {
+    background:
+        radial-gradient(ellipse at center, #152b42, #080b12 70%);
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.contact .section-title {
+    font-size: clamp(30px,5vw,50px);
+}
+
+.contact .section-description {
+    margin: 0 auto 35px;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 16px 30px;
+    background: var(--blue);
+    color: #080b12;
+    font-weight: 800;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.contact-link:hover {
+    background: white;
+    box-shadow: 0 0 30px rgba(168,216,255,.3);
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+
+footer {
+    background: #05070b;
+    border-top: 1px solid var(--border);
+    color: #69798d;
+    text-align: center;
+    padding: 28px;
+    font-size: 12px;
+}
+
+footer span {
+    color: var(--blue);
+}
+
+/* SCROLL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-visual {
+        min-height: 250px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 88%;
+    }
+
+    .logo {
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+
+    .nav-content {
+        height: 65px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 70px 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hobby-box {
+        padding: 27px 20px;
+    }
+
+    .achievement-card {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="container nav-content">
+        <a href="#home" class="logo">C&J.</a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+    <div class="container hero-content reveal">
+
+        <div class="hero-tag">
+            THE DARK LEGACY • EST. 2026
+        </div>
+
+        <h1>
+            CIELO <span>&</span><br>
+            JIMMY.
+        </h1>
+
+        <p>
+            Two ambitious minds. One powerful legacy.
+            We stand for honesty, intelligence, loyalty, justice,
+            and the courage to create our own future.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#about" class="btn btn-primary">Discover Us</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container about-grid">
+
+        <div class="about-visual reveal">
+            <span>C & J</span>
+        </div>
+
+        <div class="about-text reveal">
+
+            <div class="section-label">01 — Who We Are</div>
+            <h2 class="section-title">A Different Kind of Legacy.</h2>
+
+            <p>
+                Kami adalah Cielo dan Jimmy, siswa kelas XI
+                SMA Bunda Hati Kudus. Kami merupakan pribadi yang
+                menjunjung tinggi kejujuran, kesopanan, dan ketakwaan
+                kepada Tuhan.
+            </p>
+
+            <p>
+                Kami selalu berusaha mengemukakan kebenaran,
+                memperjuangkan keadilan, serta menjaga perdamaian.
+                Dengan semangat Superman, kami percaya bahwa setiap
+                tantangan adalah kesempatan untuk berkembang,
+                belajar, dan memberikan dampak positif.
+            </p>
+
+            <div class="about-values">
+                <span class="value-tag">HONESTY</span>
+                <span class="value-tag">LOYALTY</span>
+                <span class="value-tag">JUSTICE</span>
+                <span class="value-tag">PEACE</span>
+                <span class="value-tag">FAITH</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+
+        <div class="section-label reveal">02 — Our Abilities</div>
+        <h2 class="section-title reveal">Skills & Expertise.</h2>
+
+        <p class="section-description reveal">
+            Our capabilities are built through curiosity,
+            discipline, creativity, and continuous learning.
+        </p>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🍳</div>
+                <h3>Cooking</h3>
+                <p>Exploring culinary creativity and mastering cooking skills.</p>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🧠</div>
+                <h3>Problem Solving</h3>
+                <p>Analyzing challenges and finding effective solutions.</p>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🤝</div>
+                <h3>Negotiation</h3>
+                <p>Building agreements through communication and strategy.</p>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">💬</div>
+                <h3>Communication</h3>
+                <p>Expressing thoughts and ideas with clarity and confidence.</p>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🎤</div>
+                <h3>Singing</h3>
+                <p>Expressing creativity through music and performance.</p>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🎮</div>
+                <h3>Playing</h3>
+                <p>Developing teamwork, competitive spirit, and creativity.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="journey">
+    <div class="container">
+
+        <div class="section-label reveal">03 — Our Journey</div>
+        <h2 class="section-title reveal">The Road to Greatness.</h2>
+
+        <p class="section-description reveal">
+            Every achievement has a story. Every experience
+            shapes the person we are becoming.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">EDUCATION</div>
+                <h3>SMA Bunda Hati Kudus</h3>
+                <p>
+                    Menempuh pendidikan kelas XI sambil mengembangkan
+                    kemampuan akademik, karakter, dan keterampilan.
+                </p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">ACADEMIC EXCELLENCE</div>
+                <h3>Juara 1 & 2 Paralel</h3>
+                <p>
+                    Meraih peringkat pertama dan kedua paralel
+                    dalam pencapaian akademik.
+                </p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">SCIENCE OLYMPIAD</div>
+                <h3>Juara 1 OSN Fisika & Kebumian</h3>
+                <p>
+                    Meraih prestasi dalam bidang Fisika dan Kebumian.
+                </p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">LEADERSHIP</div>
+                <h3>Direktur Utama NASA</h3>
+                <p>
+                    Menjalankan peran kepemimpinan dan mengembangkan
+                    kemampuan organisasi.
+                </p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">SPORTS COMPETITION</div>
+                <h3>PORPROV</h3>
+                <p>
+                    Berpartisipasi dalam kompetisi badminton,
+                    voli, dan padel.
+                </p>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">NATIONAL REPRESENTATION</div>
+                <h3>Tim Nasional Voli Putra</h3>
+                <p>
+                    Pengalaman sebagai bagian dari tim nasional
+                    voli putra.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOBBIES -->
+<section>
+    <div class="container">
+
+        <div class="hobby-box reveal">
+
+            <div class="section-label">04 — Beyond The Ordinary</div>
+            <h2 class="section-title">Our Interests.</h2>
+
+            <p>
+                From sports to technology, from creativity to adventure.
+                We believe life is about exploring everything worth learning.
+            </p>
+
+            <div class="hobby-tags">
+                <span class="hobby-tag">🏐 Voli</span>
+                <span class="hobby-tag">🍳 Cooking</span>
+                <span class="hobby-tag">🏸 Badminton</span>
+                <span class="hobby-tag">✍️ Writing</span>
+                <span class="hobby-tag">📚 Reading</span>
+                <span class="hobby-tag">🎨 Painting</span>
+                <span class="hobby-tag">🎮 Gaming</span>
+                <span class="hobby-tag">🏊 Swimming</span>
+                <span class="hobby-tag">🥾 Hiking</span>
+                <span class="hobby-tag">🏃 Running</span>
+                <span class="hobby-tag">🚶 Walking</span>
+                <span class="hobby-tag">😴 Sleeping</span>
+                <span class="hobby-tag">🧗 Climbing</span>
+                <span class="hobby-tag">🥊 Boxing</span>
+                <span class="hobby-tag">🥋 Jiu Jitsu</span>
+                <span class="hobby-tag">🥋 Karate</span>
+                <span class="hobby-tag">🥊 Muay Thai</span>
+                <span class="hobby-tag">🏀 Basketball</span>
+                <span class="hobby-tag">⛳ Golf</span>
+                <span class="hobby-tag">🎱 Billiard</span>
+                <span class="hobby-tag">📸 Photography</span>
+                <span class="hobby-tag">🎾 Padel</span>
+                <span class="hobby-tag">💻 Coding</span>
+                <span class="hobby-tag">🎤 Singing</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section>
+    <div class="container">
+
+        <div class="section-label reveal">05 — Our Legacy</div>
+        <h2 class="section-title reveal">Achievements & Recognition.</h2>
+
+        <p class="section-description reveal">
+            The milestones that represent our dedication,
+            ambition, and determination.
+        </p>
+
+        <div class="achievements-grid">
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">🏆</div>
+                <div>
+                    <h3>Juara 1 & 2 Paralel</h3>
+                    <p>Academic excellence at school.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">🥇</div>
+                <div>
+                    <h3>Juara 1 OSN</h3>
+                    <p>Physics and Earth Science Olympiad.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">👔</div>
+                <div>
+                    <h3>Direktur Utama NASA</h3>
+                    <p>Leadership and organizational experience.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">🏐</div>
+                <div>
+                    <h3>Tim Nasional Voli Putra</h3>
+                    <p>National-level volleyball experience.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">🏅</div>
+                <div>
+                    <h3>PORPROV</h3>
+                    <p>Badminton, volleyball, and padel competitions.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card reveal">
+                <div class="achievement-icon">⭐</div>
+                <div>
+                    <h3>Beyond Limits</h3>
+                    <p>Always striving to learn, improve, and achieve more.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="container">
+
+        <div class="section-label reveal">06 — Get In Touch</div>
+
+        <h2 class="section-title reveal">
+            Every Legacy Starts Somewhere.
+        </h2>
+
+        <p class="section-description reveal">
+            We are always open to new opportunities,
+            meaningful connections, and extraordinary collaborations.
+        </p>
+
+        <div class="reveal">
+            <a href="mailto:jimmyvanceo1234@gmail.com"
+               class="contact-link">
+                ✉ CONTACT THE TEAM
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 <span>CIELO & JIMMY</span>. ALL RIGHTS RESERVED.</p>
+    <p>POWER • LOYALTY • HONOR • LEGACY</p>
+</footer>
+
+<script>
+
+// Scroll Reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.12
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+});
+
+// Smooth Navigation
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const target = document.querySelector(
+            this.getAttribute('href')
+        );
+
+        if (target) {
+            event.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
+```
